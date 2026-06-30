@@ -1,0 +1,46 @@
+[
+  {
+    "id": "aliado_001",
+    "nombre": "MotoRepuestos Lima",
+    "categoria": "repuestos",
+    "logoUrl": "/images/aliados/aliado_001.png",
+    "descripcion": "Cadena de repuestos y accesorios para motos.",
+    "beneficio": {
+      "titulo": "15% de descuento en repuestos",
+      "tipo": "descuento_porcentaje",
+      "valor": 15,
+      "codigoCupon": "PIK15MOTO",
+      "condiciones": "Válido presentando credencial PIK vigente. No acumulable.",
+      "vigenciaDesde": "2026-01-01",
+      "vigenciaHasta": "2026-12-31"
+    },
+    "membresiaRequerida": "free",
+    "ubicaciones": ["Lima", "Callao"],
+    "destacado": true,
+    "totalCanjes": 1248,
+    "calificacion": 4.5,
+    "activo": true
+  },
+  {
+    "id": "aliado_002",
+    "nombre": "Grifos Energía",
+    "categoria": "combustible",
+    "logoUrl": "/images/aliados/aliado_002.png",
+    "descripcion": "Red de grifos con cashback para motociclistas certificados.",
+    "beneficio": {
+      "titulo": "S/ 0.30 de cashback por galón",
+      "tipo": "cashback",
+      "valor": 0.3,
+      "codigoCupon": null,
+      "condiciones": "Solo membresía Premium. Tope S/ 30 mensuales.",
+      "vigenciaDesde": "2026-03-01",
+      "vigenciaHasta": "2026-12-31"
+    },
+    "membresiaRequerida": "premium",
+    "ubicaciones": ["Lima", "Arequipa", "Trujillo"],
+    "destacado": true,
+    "totalCanjes": 845,
+    "calificacion": 4.2,
+    "activo": true
+  }
+]

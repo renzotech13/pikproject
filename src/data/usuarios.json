@@ -1,0 +1,98 @@
+[
+  {
+    "id": "usr_001",
+    "rol": "motociclista",
+    "nombres": "Carlos",
+    "apellidos": "Quispe Mamani",
+    "dni": "44556677",
+    "email": "carlos.quispe@example.com",
+    "telefono": "+51 987654321",
+    "fechaNacimiento": "1995-03-12",
+    "avatarUrl": "/images/avatars/usr_001.jpg",
+    "estadoCertificacion": "certificado",
+    "nivelVerificacion": 3,
+    "scorePIK": 820,
+    "membresia": "premium",
+    "codigoPIK": "PIK-2026-004512",
+    "fechaCertificacion": "2026-01-15",
+    "fechaVencimiento": "2027-01-15",
+    "vehiculo": {
+      "placa": "1234-AB",
+      "marca": "Honda",
+      "modelo": "CB 190R",
+      "anio": 2022,
+      "cilindrada": 190,
+      "color": "Rojo",
+      "soatVigente": true,
+      "soatVencimiento": "2026-09-30"
+    },
+    "documentos": {
+      "dniVerificado": true,
+      "licenciaConducir": {
+        "numero": "Q44556677",
+        "categoria": "B-IIa",
+        "vencimiento": "2028-05-20",
+        "verificado": true
+      },
+      "antecedentes": "limpio"
+    },
+    "direccion": { "departamento": "Lima", "provincia": "Lima", "distrito": "Miraflores" },
+    "fechaRegistro": "2025-11-02"
+  },
+  {
+    "id": "usr_002",
+    "rol": "motociclista",
+    "nombres": "Lucía",
+    "apellidos": "Ramos Flores",
+    "dni": "70123456",
+    "email": "lucia.ramos@example.com",
+    "telefono": "+51 912345678",
+    "fechaNacimiento": "1999-08-24",
+    "avatarUrl": null,
+    "estadoCertificacion": "en_proceso",
+    "nivelVerificacion": 1,
+    "scorePIK": 540,
+    "membresia": "free",
+    "vehiculo": {
+      "placa": "5678-CD",
+      "marca": "Bajaj",
+      "modelo": "Pulsar NS200",
+      "anio": 2021,
+      "cilindrada": 200,
+      "color": "Negro",
+      "soatVigente": false,
+      "soatVencimiento": "2026-05-01"
+    },
+    "documentos": {
+      "dniVerificado": true,
+      "licenciaConducir": {
+        "numero": "L70123456",
+        "categoria": "B-IIa",
+        "vencimiento": "2027-11-10",
+        "verificado": false
+      },
+      "antecedentes": "pendiente"
+    },
+    "direccion": { "departamento": "Lima", "provincia": "Lima", "distrito": "San Juan de Lurigancho" },
+    "fechaRegistro": "2026-06-10"
+  },
+  {
+    "id": "usr_900",
+    "rol": "admin",
+    "nombres": "Admin",
+    "apellidos": "PIK",
+    "dni": "10000000",
+    "email": "admin@pik.pe",
+    "telefono": "+51 900000000",
+    "fechaNacimiento": "1988-01-01",
+    "avatarUrl": null,
+    "estadoCertificacion": "no_iniciado",
+    "nivelVerificacion": 0,
+    "scorePIK": 0,
+    "membresia": "premium",
+    "vehiculo": null,
+    "documentos": { "dniVerificado": true, "licenciaConducir": null, "antecedentes": "limpio" },
+    "direccion": { "departamento": "Lima", "provincia": "Lima", "distrito": "San Isidro" },
+    "fechaRegistro": "2025-01-01"
+  }
+]

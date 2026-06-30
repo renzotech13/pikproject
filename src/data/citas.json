@@ -1,0 +1,44 @@
+[
+  {
+    "id": "cita_001",
+    "usuarioId": "usr_001",
+    "sedeId": "sede_001",
+    "tipo": "renovacion",
+    "fecha": "2026-07-05",
+    "hora": "10:30",
+    "duracionMin": 45,
+    "estado": "confirmada",
+    "codigoReserva": "CITA-7K2P9",
+    "costo": 85.0,
+    "pagada": true,
+    "pagoId": "pago_001",
+    "notas": "Traer DNI físico, licencia y tarjeta de propiedad.",
+    "checklist": [
+      { "item": "DNI vigente", "obligatorio": true, "completado": true },
+      { "item": "Licencia de conducir", "obligatorio": true, "completado": true },
+      { "item": "SOAT vigente", "obligatorio": true, "completado": false }
+    ],
+    "creadaEn": "2026-06-20T14:23:00Z"
+  },
+  {
+    "id": "cita_002",
+    "usuarioId": "usr_002",
+    "sedeId": "sede_002",
+    "tipo": "verificacion_inicial",
+    "fecha": "2026-07-02",
+    "hora": "09:00",
+    "duracionMin": 60,
+    "estado": "pendiente",
+    "codigoReserva": "CITA-3M8X1",
+    "costo": 120.0,
+    "pagada": false,
+    "pagoId": null,
+    "notas": "Renovar SOAT antes de la inspección.",
+    "checklist": [
+      { "item": "DNI vigente", "obligatorio": true, "completado": true },
+      { "item": "Licencia de conducir", "obligatorio": true, "completado": false },
+      { "item": "SOAT vigente", "obligatorio": true, "completado": false }
+    ],
+    "creadaEn": "2026-06-25T18:40:00Z"
+  }
+]

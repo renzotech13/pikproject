@@ -1,0 +1,38 @@
+[
+  {
+    "id": "sede_001",
+    "nombre": "PIK Centro · San Isidro",
+    "tipo": "centro_certificacion",
+    "direccion": "Av. Javier Prado Este 123, San Isidro",
+    "distrito": "San Isidro",
+    "departamento": "Lima",
+    "coordenadas": { "lat": -12.0931, "lng": -77.0465 },
+    "telefono": "+51 1 4567890",
+    "horario": { "lunesViernes": "08:00 - 18:00", "sabado": "09:00 - 13:00", "domingo": "Cerrado" },
+    "servicios": ["verificacion_identidad", "inspeccion_tecnica", "emision_credencial", "renovacion"],
+    "capacidadDiaria": 80,
+    "disponibilidad": "alta",
+    "calificacion": 4.7,
+    "totalResenas": 312,
+    "imagenUrl": "/images/sedes/sede_001.jpg",
+    "activa": true
+  },
+  {
+    "id": "sede_002",
+    "nombre": "PIK Norte · Los Olivos",
+    "tipo": "punto_inspeccion",
+    "direccion": "Av. Antúnez de Mayolo 980, Los Olivos",
+    "distrito": "Los Olivos",
+    "departamento": "Lima",
+    "coordenadas": { "lat": -11.9986, "lng": -77.0628 },
+    "telefono": "+51 1 5567890",
+    "horario": { "lunesViernes": "08:00 - 17:00", "sabado": "09:00 - 13:00", "domingo": "Cerrado" },
+    "servicios": ["verificacion_identidad", "inspeccion_tecnica"],
+    "capacidadDiaria": 50,
+    "disponibilidad": "media",
+    "calificacion": 4.4,
+    "totalResenas": 178,
+    "imagenUrl": "/images/sedes/sede_002.jpg",
+    "activa": true
+  }
+]

@@ -1,0 +1,12 @@
+// Barrel del sistema de diseño (CONTRACT.md §3.1).
+// Los features importan desde aquí: import { Button, Card } from '@/components/ui'
+export { default as Button }        from './Button'
+export { default as Card }          from './Card'
+export { default as Badge }         from './Badge'
+export { default as StatusBadge }   from './StatusBadge'
+export { default as Input }         from './Input'
+export { default as Spinner }       from './Spinner'
+export { default as PlaceholderPage } from './PlaceholderPage'
+export { default as EmptyState }    from './EmptyState'
+export { default as Stepper }       from './Stepper'
+export { default as Skeleton }      from './Skeleton'

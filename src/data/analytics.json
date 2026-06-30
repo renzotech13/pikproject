@@ -1,0 +1,54 @@
+{
+  "resumen": {
+    "totalUsuarios": 12480,
+    "usuariosCertificados": 8932,
+    "verificacionesEnProceso": 1203,
+    "citasHoy": 156,
+    "ingresosMes": 542300.0,
+    "tasaCertificacion": 0.716
+  },
+  "kpis": [
+    { "id": "certificaciones", "label": "Certificaciones", "valor": 8932, "variacion": 0.124, "tendencia": "up", "formato": "numero" },
+    { "id": "ingresos", "label": "Ingresos del mes", "valor": 542300, "variacion": 0.083, "tendencia": "up", "formato": "moneda" },
+    { "id": "citas_hoy", "label": "Citas hoy", "valor": 156, "variacion": -0.04, "tendencia": "down", "formato": "numero" },
+    { "id": "tasa", "label": "Tasa de certificación", "valor": 0.716, "variacion": 0.021, "tendencia": "up", "formato": "porcentaje" }
+  ],
+  "certificacionesPorMes": [
+    { "mes": "2026-01", "cantidad": 720 },
+    { "mes": "2026-02", "cantidad": 810 },
+    { "mes": "2026-03", "cantidad": 905 },
+    { "mes": "2026-04", "cantidad": 1120 },
+    { "mes": "2026-05", "cantidad": 1340 },
+    { "mes": "2026-06", "cantidad": 1490 }
+  ],
+  "usuariosPorEstado": [
+    { "estado": "certificado", "cantidad": 8932 },
+    { "estado": "en_proceso", "cantidad": 1203 },
+    { "estado": "pendiente_pago", "cantidad": 640 },
+    { "estado": "vencido", "cantidad": 980 },
+    { "estado": "rechazado", "cantidad": 320 },
+    { "estado": "no_iniciado", "cantidad": 405 }
+  ],
+  "citasPorSede": [
+    { "sedeId": "sede_001", "nombre": "San Isidro", "cantidad": 1820 },
+    { "sedeId": "sede_002", "nombre": "Los Olivos", "cantidad": 1140 }
+  ],
+  "ingresosPorMes": [
+    { "mes": "2026-01", "monto": 380000 },
+    { "mes": "2026-02", "monto": 412000 },
+    { "mes": "2026-03", "monto": 455000 },
+    { "mes": "2026-04", "monto": 489000 },
+    { "mes": "2026-05", "monto": 512000 },
+    { "mes": "2026-06", "monto": 542300 }
+  ],
+  "canjesPorAliado": [
+    { "aliadoId": "aliado_001", "nombre": "MotoRepuestos Lima", "canjes": 1248 },
+    { "aliadoId": "aliado_002", "nombre": "Grifos Energía", "canjes": 845 }
+  ],
+  "distribucionGeografica": [
+    { "distrito": "Lima", "usuarios": 3200 },
+    { "distrito": "San Juan de Lurigancho", "usuarios": 1850 },
+    { "distrito": "Los Olivos", "usuarios": 1240 },
+    { "distrito": "Comas", "usuarios": 980 }
+  ]
+}

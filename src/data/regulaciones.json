@@ -1,0 +1,28 @@
+[
+  {
+    "id": "reg_001",
+    "titulo": "Certificación obligatoria para reparto en moto",
+    "categoria": "delivery",
+    "entidad": "MTC",
+    "resumen": "Toda persona que realice reparto en motocicleta debe contar con certificación vigente.",
+    "contenido": "El reglamento establece que los conductores de motocicletas que presten servicios de reparto deben portar una certificación vigente que acredite identidad, licencia y revisión técnica del vehículo...",
+    "nivelImportancia": "alta",
+    "vigenteDesde": "2025-06-01",
+    "fuenteUrl": "https://www.gob.pe/mtc",
+    "tags": ["delivery", "obligatorio", "moto"],
+    "actualizadoEn": "2026-02-10"
+  },
+  {
+    "id": "reg_002",
+    "titulo": "SOAT vigente para circulación",
+    "categoria": "soat",
+    "entidad": "SUTRAN",
+    "resumen": "Es obligatorio portar el SOAT vigente para circular en vías nacionales.",
+    "contenido": "El Seguro Obligatorio de Accidentes de Tránsito (SOAT) debe encontrarse vigente. La fiscalización puede imponer sanciones ante su ausencia...",
+    "nivelImportancia": "media",
+    "vigenteDesde": "2024-01-01",
+    "fuenteUrl": "https://www.gob.pe/sutran",
+    "tags": ["soat", "seguro", "obligatorio"],
+    "actualizadoEn": "2026-01-05"
+  }
+]

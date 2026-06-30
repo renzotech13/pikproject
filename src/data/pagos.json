@@ -1,0 +1,21 @@
+[
+  {
+    "id": "pago_001",
+    "usuarioId": "usr_001",
+    "concepto": "Renovación de certificación PIK",
+    "referencia": "cita_001",
+    "tipo": "renovacion",
+    "monto": 85.0,
+    "moneda": "PEN",
+    "metodo": "yape",
+    "estado": "completado",
+    "codigoOperacion": "OP-2026-88412",
+    "comprobante": {
+      "tipo": "boleta",
+      "serie": "B001",
+      "numero": "0004512",
+      "url": "/comprobantes/B001-0004512.pdf"
+    },
+    "fecha": "2026-06-20T14:25:30Z"
+  }
+]

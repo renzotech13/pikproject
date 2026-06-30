@@ -1,0 +1,7 @@
+export { default as Overview } from './pages/Overview'
+export { default as VerificationsManage } from './pages/VerificationsManage'
+export { default as AppointmentsManage } from './pages/AppointmentsManage'
+export { default as SedesManage } from './pages/SedesManage'
+export { default as AlliesManage } from './pages/AlliesManage'
+export { default as RegulationsManage } from './pages/RegulationsManage'
+export { default as UsersManage } from './pages/UsersManage'
