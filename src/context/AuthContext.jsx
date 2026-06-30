@@ -6,8 +6,8 @@ const DEMO_MOTO = {
   id: 'usr_001',
   rol: 'motociclista',
   nombres: 'Carlos',
-  apellidos: 'Quispe Mamani',
-  email: 'carlos.quispe@example.com',
+  apellidos: 'Ramírez Herrera',
+  email: 'carlos.ramirez@example.com',
   avatarUrl: null,
   estadoCertificacion: 'certificado',
   nivelVerificacion: 3,
@@ -15,7 +15,7 @@ const DEMO_MOTO = {
   membresia: 'premium',
   codigoPIK: 'PIK-2026-004512',
   fechaVencimiento: '2027-01-15',
-  vehiculo: { placa: '1234-AB', marca: 'Honda', modelo: 'CB 190R', anio: 2022 },
+  vehiculo: { placa: 'MXA-234-B', marca: 'Honda', modelo: 'CB 190R', anio: 2022 },
 }
 
 const DEMO_ADMIN = {
@@ -23,7 +23,7 @@ const DEMO_ADMIN = {
   rol: 'admin',
   nombres: 'Admin',
   apellidos: 'PIK',
-  email: 'admin@pik.pe',
+  email: 'admin@pik.mx',
   avatarUrl: null,
 }
 
