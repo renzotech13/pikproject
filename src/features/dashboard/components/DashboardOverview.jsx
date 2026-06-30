@@ -54,11 +54,11 @@ const KPIS = [
 
 // 5 sedes (2 reales + 3 expandidas para gráfico más visual)
 const CITAS_POR_SEDE = [
-  { nombre: 'San Isidro', cantidad: 1820 },
-  { nombre: 'Los Olivos', cantidad: 1140 },
-  { nombre: 'Surco',      cantidad: 978  },
-  { nombre: 'Callao',     cantidad: 756  },
-  { nombre: 'La Molina',  cantidad: 534  },
+  { nombre: 'Cuauhtémoc',        cantidad: 1820 },
+  { nombre: 'G.A. Madero',       cantidad: 1140 },
+  { nombre: 'Coyoacán',          cantidad: 978  },
+  { nombre: 'Iztapalapa',        cantidad: 756  },
+  { nombre: 'Tlalpan',           cantidad: 534  },
 ]
 
 const INGRESOS_POR_MES = [

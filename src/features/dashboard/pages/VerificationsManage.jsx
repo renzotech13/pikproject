@@ -6,14 +6,14 @@ import { getIniciales } from '@/lib/formatters'
 
 // Mock extendido — 2 reales (usuarios.json) + 6 generados para el demo
 const MOCK_USERS = [
-  { id: 'usr_001', nombres: 'Carlos',   apellidos: 'Quispe Mamani',     dni: '44556677', estadoCertificacion: 'certificado',    scorePIK: 820, membresia: 'premium', distrito: 'Miraflores',          fechaRegistro: '2025-11-02' },
-  { id: 'usr_002', nombres: 'Lucía',    apellidos: 'Ramos Flores',      dni: '70123456', estadoCertificacion: 'en_proceso',     scorePIK: 540, membresia: 'free',    distrito: 'S.J. Lurigancho',     fechaRegistro: '2026-06-10' },
-  { id: 'usr_003', nombres: 'Marco',    apellidos: 'Torres Vidal',      dni: '63489201', estadoCertificacion: 'pendiente_pago', scorePIK: 680, membresia: 'free',    distrito: 'Los Olivos',          fechaRegistro: '2026-05-22' },
-  { id: 'usr_004', nombres: 'Andrea',   apellidos: 'Vargas Lozano',     dni: '55123890', estadoCertificacion: 'vencido',        scorePIK: 390, membresia: 'premium', distrito: 'Surco',               fechaRegistro: '2025-08-14' },
-  { id: 'usr_005', nombres: 'José',     apellidos: 'Mendoza Cruz',      dni: '41872345', estadoCertificacion: 'certificado',    scorePIK: 910, membresia: 'premium', distrito: 'La Molina',           fechaRegistro: '2025-12-03' },
-  { id: 'usr_006', nombres: 'María',    apellidos: 'Paredes Huanca',    dni: '78234567', estadoCertificacion: 'rechazado',      scorePIK: 210, membresia: 'free',    distrito: 'Comas',               fechaRegistro: '2026-04-17' },
-  { id: 'usr_007', nombres: 'Ricardo',  apellidos: 'Soto Cárdenas',    dni: '62890123', estadoCertificacion: 'certificado',    scorePIK: 770, membresia: 'premium', distrito: 'San Isidro',          fechaRegistro: '2026-01-28' },
-  { id: 'usr_008', nombres: 'Patricia', apellidos: 'Guerrero Sisnero', dni: '51234789', estadoCertificacion: 'en_proceso',     scorePIK: 490, membresia: 'free',    distrito: 'Callao',              fechaRegistro: '2026-06-01' },
+  { id: 'usr_001', nombres: 'Carlos',   apellidos: 'Ramírez Herrera',   dni: '44556677', estadoCertificacion: 'certificado',    scorePIK: 820, membresia: 'premium', distrito: 'Cuauhtémoc',          fechaRegistro: '2025-11-02' },
+  { id: 'usr_002', nombres: 'Lucía',    apellidos: 'González Morales',  dni: '70123456', estadoCertificacion: 'en_proceso',     scorePIK: 540, membresia: 'free',    distrito: 'Iztapalapa',          fechaRegistro: '2026-06-10' },
+  { id: 'usr_003', nombres: 'Marco',    apellidos: 'López Jiménez',     dni: '63489201', estadoCertificacion: 'pendiente_pago', scorePIK: 680, membresia: 'free',    distrito: 'Gustavo A. Madero',   fechaRegistro: '2026-05-22' },
+  { id: 'usr_004', nombres: 'Andrea',   apellidos: 'Martínez Ruiz',     dni: '55123890', estadoCertificacion: 'vencido',        scorePIK: 390, membresia: 'premium', distrito: 'Coyoacán',            fechaRegistro: '2025-08-14' },
+  { id: 'usr_005', nombres: 'José',     apellidos: 'Hernández Sánchez', dni: '41872345', estadoCertificacion: 'certificado',    scorePIK: 910, membresia: 'premium', distrito: 'Tlalpan',             fechaRegistro: '2025-12-03' },
+  { id: 'usr_006', nombres: 'María',    apellidos: 'García Flores',     dni: '78234567', estadoCertificacion: 'rechazado',      scorePIK: 210, membresia: 'free',    distrito: 'Iztacalco',           fechaRegistro: '2026-04-17' },
+  { id: 'usr_007', nombres: 'Ricardo',  apellidos: 'Torres Guzmán',     dni: '62890123', estadoCertificacion: 'certificado',    scorePIK: 770, membresia: 'premium', distrito: 'Benito Juárez',       fechaRegistro: '2026-01-28' },
+  { id: 'usr_008', nombres: 'Patricia', apellidos: 'Reyes Vega',        dni: '51234789', estadoCertificacion: 'en_proceso',     scorePIK: 490, membresia: 'free',    distrito: 'Venustiano Carranza', fechaRegistro: '2026-06-01' },
 ]
 
 const ESTADOS = ['Todos', 'certificado', 'en_proceso', 'pendiente_pago', 'vencido', 'rechazado']

@@ -9,7 +9,7 @@ import { Card, Badge, StatusBadge, Button } from '@/components/ui'
 // Próxima cita hardcoded para la demo (servicio real se implementa en la fase de features)
 const NEXT_CITA = {
   fechaDisplay: 'Sáb 5 Jul · 10:30 am',
-  sede: 'PIK Centro · San Isidro',
+  sede: 'PIK Centro · Cuauhtémoc',
   tipo: 'Renovación',
   estado: 'confirmada',
 }
@@ -148,7 +148,7 @@ export default function HomeDashboard() {
               <MapPin size={18} className="text-accent" />
             </div>
             <div className="flex-1 min-w-0">
-              <p className="text-sm font-semibold text-ink">PIK Centro · San Isidro</p>
+              <p className="text-sm font-semibold text-ink">PIK Centro · Cuauhtémoc</p>
               <div className="mt-1 flex items-center gap-2">
                 <Badge variant="success" size="sm">Alta disponibilidad</Badge>
                 <span className="text-[11px] text-slate-400">4.7 ★</span>

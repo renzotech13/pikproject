@@ -3,10 +3,10 @@
     "id": "usr_001",
     "rol": "motociclista",
     "nombres": "Carlos",
-    "apellidos": "Quispe Mamani",
+    "apellidos": "Ramírez Herrera",
     "dni": "44556677",
-    "email": "carlos.quispe@example.com",
-    "telefono": "+51 987654321",
+    "email": "carlos.ramirez@example.com",
+    "telefono": "+52 55 1234 5678",
     "fechaNacimiento": "1995-03-12",
     "avatarUrl": "/images/avatars/usr_001.jpg",
     "estadoCertificacion": "certificado",
@@ -17,7 +17,7 @@
     "fechaCertificacion": "2026-01-15",
     "fechaVencimiento": "2027-01-15",
     "vehiculo": {
-      "placa": "1234-AB",
+      "placa": "MXA-234-B",
       "marca": "Honda",
       "modelo": "CB 190R",
       "anio": 2022,
@@ -30,23 +30,23 @@
       "dniVerificado": true,
       "licenciaConducir": {
         "numero": "Q44556677",
-        "categoria": "B-IIa",
+        "categoria": "A",
         "vencimiento": "2028-05-20",
         "verificado": true
       },
       "antecedentes": "limpio"
     },
-    "direccion": { "departamento": "Lima", "provincia": "Lima", "distrito": "Miraflores" },
+    "direccion": { "departamento": "Ciudad de México", "provincia": "CDMX", "distrito": "Cuauhtémoc" },
     "fechaRegistro": "2025-11-02"
   },
   {
     "id": "usr_002",
     "rol": "motociclista",
     "nombres": "Lucía",
-    "apellidos": "Ramos Flores",
+    "apellidos": "González Morales",
     "dni": "70123456",
-    "email": "lucia.ramos@example.com",
-    "telefono": "+51 912345678",
+    "email": "lucia.gonzalez@example.com",
+    "telefono": "+52 55 9876 5432",
     "fechaNacimiento": "1999-08-24",
     "avatarUrl": null,
     "estadoCertificacion": "en_proceso",
@@ -54,7 +54,7 @@
     "scorePIK": 540,
     "membresia": "free",
     "vehiculo": {
-      "placa": "5678-CD",
+      "placa": "MXB-567-C",
       "marca": "Bajaj",
       "modelo": "Pulsar NS200",
       "anio": 2021,
@@ -67,13 +67,13 @@
       "dniVerificado": true,
       "licenciaConducir": {
         "numero": "L70123456",
-        "categoria": "B-IIa",
+        "categoria": "A",
         "vencimiento": "2027-11-10",
         "verificado": false
       },
       "antecedentes": "pendiente"
     },
-    "direccion": { "departamento": "Lima", "provincia": "Lima", "distrito": "San Juan de Lurigancho" },
+    "direccion": { "departamento": "Ciudad de México", "provincia": "CDMX", "distrito": "Iztapalapa" },
     "fechaRegistro": "2026-06-10"
   },
   {
@@ -82,8 +82,8 @@
     "nombres": "Admin",
     "apellidos": "PIK",
     "dni": "10000000",
-    "email": "admin@pik.pe",
-    "telefono": "+51 900000000",
+    "email": "admin@pik.mx",
+    "telefono": "+52 55 0000 0000",
     "fechaNacimiento": "1988-01-01",
     "avatarUrl": null,
     "estadoCertificacion": "no_iniciado",
@@ -92,7 +92,7 @@
     "membresia": "premium",
     "vehiculo": null,
     "documentos": { "dniVerificado": true, "licenciaConducir": null, "antecedentes": "limpio" },
-    "direccion": { "departamento": "Lima", "provincia": "Lima", "distrito": "San Isidro" },
+    "direccion": { "departamento": "Ciudad de México", "provincia": "CDMX", "distrito": "Cuauhtémoc" },
     "fechaRegistro": "2025-01-01"
   }
 ]
