@@ -56,8 +56,8 @@ const MVP = [
 const PROD = [
   {
     icon: Zap,
-    name: 'APIs Oficiales MTC / SUTRAN',
-    desc: 'Validación de licencias, registros vehiculares y antecedentes en tiempo real.',
+    name: 'APIs Oficiales SICT / Semovi',
+    desc: 'Validación de licencias, Repuve y antecedentes de tránsito en tiempo real.',
   },
   {
     icon: CreditCard,
@@ -72,7 +72,7 @@ const PROD = [
   {
     icon: Globe,
     name: 'Scraping Automatizado',
-    desc: 'Bot de sincronización con registros MTC · SUTRAN · SOAT · Placas vehiculares.',
+    desc: 'Bot de sincronización con registros SICT · Repuve · Padrón Vehicular CDMX.',
   },
   {
     icon: Bell,

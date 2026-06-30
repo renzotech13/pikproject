@@ -9,14 +9,14 @@
     "duracionMin": 45,
     "estado": "confirmada",
     "codigoReserva": "CITA-7K2P9",
-    "costo": 85.0,
+    "costo": 850.0,
     "pagada": true,
     "pagoId": "pago_001",
-    "notas": "Traer DNI físico, licencia y tarjeta de propiedad.",
+    "notas": "Traer INE, licencia de conducir y tarjeta de circulación.",
     "checklist": [
-      { "item": "DNI vigente", "obligatorio": true, "completado": true },
+      { "item": "INE vigente", "obligatorio": true, "completado": true },
       { "item": "Licencia de conducir", "obligatorio": true, "completado": true },
-      { "item": "SOAT vigente", "obligatorio": true, "completado": false }
+      { "item": "Seguro vehicular vigente", "obligatorio": true, "completado": false }
     ],
     "creadaEn": "2026-06-20T14:23:00Z"
   },
@@ -30,14 +30,14 @@
     "duracionMin": 60,
     "estado": "pendiente",
     "codigoReserva": "CITA-3M8X1",
-    "costo": 120.0,
+    "costo": 1200.0,
     "pagada": false,
     "pagoId": null,
-    "notas": "Renovar SOAT antes de la inspección.",
+    "notas": "Renovar seguro vehicular antes de la inspección.",
     "checklist": [
-      { "item": "DNI vigente", "obligatorio": true, "completado": true },
+      { "item": "INE vigente", "obligatorio": true, "completado": true },
       { "item": "Licencia de conducir", "obligatorio": true, "completado": false },
-      { "item": "SOAT vigente", "obligatorio": true, "completado": false }
+      { "item": "Seguro vehicular vigente", "obligatorio": true, "completado": false }
     ],
     "creadaEn": "2026-06-25T18:40:00Z"
   }

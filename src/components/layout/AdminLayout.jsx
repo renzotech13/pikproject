@@ -20,7 +20,7 @@ const ADMIN_NAV = [
 ]
 
 // Fuentes de datos externas simuladas — el "pitch" de scraping
-const FUENTES = 'MTC · SUTRAN · SOAT · Registros Vehiculares'
+const FUENTES = 'SICT · Semovi · SAT · Repuve'
 
 export default function AdminLayout() {
   const { switchDemoUser } = useAuth()

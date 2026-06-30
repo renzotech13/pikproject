@@ -89,7 +89,7 @@ export default function Landing() {
         </button>
 
         <p className="mt-4 text-center text-xs text-slate-400">
-          Integración real con MTC, SUTRAN y pasarelas de pago próximamente.
+          Integración real con SICT, Semovi y pasarelas de pago próximamente.
         </p>
       </div>
     </div>

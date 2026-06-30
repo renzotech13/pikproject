@@ -144,7 +144,7 @@ export default function VerificationsManage() {
       {/* Búsqueda */}
       <Input
         name="search"
-        placeholder="Buscar por nombre o DNI…"
+        placeholder="Buscar por nombre o CURP…"
         leftIcon={<Search size={15} />}
         value={search}
         onChange={(e) => setSearch(e.target.value)}

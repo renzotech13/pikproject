@@ -1,28 +1,28 @@
 [
   {
     "id": "reg_001",
-    "titulo": "Certificación obligatoria para reparto en moto",
+    "titulo": "Certificación obligatoria para repartidores en moto",
     "categoria": "delivery",
-    "entidad": "MTC",
-    "resumen": "Toda persona que realice reparto en motocicleta debe contar con certificación vigente.",
-    "contenido": "El reglamento establece que los conductores de motocicletas que presten servicios de reparto deben portar una certificación vigente que acredite identidad, licencia y revisión técnica del vehículo...",
+    "entidad": "SICT",
+    "resumen": "Todo conductor de motocicleta que preste servicios de reparto a domicilio debe contar con certificación vigente conforme a la normativa federal.",
+    "contenido": "La Secretaría de Infraestructura, Comunicaciones y Transportes (SICT) establece que los conductores de motocicletas que realicen actividades de reparto deben acreditar identidad, licencia tipo A vigente y revisión técnica del vehículo. El incumplimiento puede resultar en sanciones administrativas y suspensión del servicio...",
     "nivelImportancia": "alta",
     "vigenteDesde": "2025-06-01",
-    "fuenteUrl": "https://www.gob.pe/mtc",
+    "fuenteUrl": "https://www.gob.mx/sict",
     "tags": ["delivery", "obligatorio", "moto"],
     "actualizadoEn": "2026-02-10"
   },
   {
     "id": "reg_002",
-    "titulo": "SOAT vigente para circulación",
-    "categoria": "soat",
-    "entidad": "SUTRAN",
-    "resumen": "Es obligatorio portar el SOAT vigente para circular en vías nacionales.",
-    "contenido": "El Seguro Obligatorio de Accidentes de Tránsito (SOAT) debe encontrarse vigente. La fiscalización puede imponer sanciones ante su ausencia...",
+    "titulo": "Seguro de Responsabilidad Civil obligatorio",
+    "categoria": "seguro",
+    "entidad": "Semovi",
+    "resumen": "Es obligatorio contar con seguro de responsabilidad civil vigente para circular en la Ciudad de México.",
+    "contenido": "El Reglamento de Tránsito de la Ciudad de México (Semovi) establece que todo vehículo motorizado debe portar seguro de responsabilidad civil vigente. Las autoridades pueden solicitar su exhibición en operativos de control vial. La ausencia del seguro conlleva infracciones y posible retiro del vehículo...",
     "nivelImportancia": "media",
     "vigenteDesde": "2024-01-01",
-    "fuenteUrl": "https://www.gob.pe/sutran",
-    "tags": ["soat", "seguro", "obligatorio"],
+    "fuenteUrl": "https://semovi.cdmx.gob.mx",
+    "tags": ["seguro", "rc", "obligatorio"],
     "actualizadoEn": "2026-01-05"
   }
 ]

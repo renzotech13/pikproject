@@ -276,7 +276,7 @@ export default function BookAppointment() {
         </Card>
 
         <p className="rounded-xl bg-amber-50 px-3 py-2.5 text-xs text-amber-700">
-          Recuerda traer <strong>DNI, licencia de conducir y SOAT vigente</strong> en original y copia.
+          Recuerda traer <strong>INE, licencia de conducir y seguro vehicular vigente</strong> en original y copia.
         </p>
 
         <div className="flex gap-3">

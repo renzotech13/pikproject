@@ -1,7 +1,7 @@
 [
   {
     "id": "aliado_001",
-    "nombre": "MotoRepuestos Lima",
+    "nombre": "MotoRepuestos CDMX",
     "categoria": "repuestos",
     "logoUrl": "/images/aliados/aliado_001.png",
     "descripcion": "Cadena de repuestos y accesorios para motos.",
@@ -15,7 +15,7 @@
       "vigenciaHasta": "2026-12-31"
     },
     "membresiaRequerida": "free",
-    "ubicaciones": ["Lima", "Callao"],
+    "ubicaciones": ["CDMX", "Ecatepec"],
     "destacado": true,
     "totalCanjes": 1248,
     "calificacion": 4.5,
@@ -23,21 +23,21 @@
   },
   {
     "id": "aliado_002",
-    "nombre": "Grifos Energía",
+    "nombre": "GasoMax",
     "categoria": "combustible",
     "logoUrl": "/images/aliados/aliado_002.png",
-    "descripcion": "Red de grifos con cashback para motociclistas certificados.",
+    "descripcion": "Red de gasolineras con cashback para motociclistas certificados.",
     "beneficio": {
-      "titulo": "S/ 0.30 de cashback por galón",
+      "titulo": "$0.50 de cashback por litro",
       "tipo": "cashback",
-      "valor": 0.3,
+      "valor": 0.5,
       "codigoCupon": null,
-      "condiciones": "Solo membresía Premium. Tope S/ 30 mensuales.",
+      "condiciones": "Solo membresía Premium. Tope $60.00 mensuales.",
       "vigenciaDesde": "2026-03-01",
       "vigenciaHasta": "2026-12-31"
     },
     "membresiaRequerida": "premium",
-    "ubicaciones": ["Lima", "Arequipa", "Trujillo"],
+    "ubicaciones": ["CDMX", "Guadalajara", "Monterrey"],
     "destacado": true,
     "totalCanjes": 845,
     "calificacion": 4.2,

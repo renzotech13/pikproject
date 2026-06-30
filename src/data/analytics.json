@@ -30,8 +30,8 @@
     { "estado": "no_iniciado", "cantidad": 405 }
   ],
   "citasPorSede": [
-    { "sedeId": "sede_001", "nombre": "San Isidro", "cantidad": 1820 },
-    { "sedeId": "sede_002", "nombre": "Los Olivos", "cantidad": 1140 }
+    { "sedeId": "sede_001", "nombre": "Cuauhtémoc", "cantidad": 1820 },
+    { "sedeId": "sede_002", "nombre": "Gustavo A. Madero", "cantidad": 1140 }
   ],
   "ingresosPorMes": [
     { "mes": "2026-01", "monto": 380000 },
@@ -42,13 +42,13 @@
     { "mes": "2026-06", "monto": 542300 }
   ],
   "canjesPorAliado": [
-    { "aliadoId": "aliado_001", "nombre": "MotoRepuestos Lima", "canjes": 1248 },
-    { "aliadoId": "aliado_002", "nombre": "Grifos Energía", "canjes": 845 }
+    { "aliadoId": "aliado_001", "nombre": "MotoRepuestos CDMX", "canjes": 1248 },
+    { "aliadoId": "aliado_002", "nombre": "GasoMax", "canjes": 845 }
   ],
   "distribucionGeografica": [
-    { "distrito": "Lima", "usuarios": 3200 },
-    { "distrito": "San Juan de Lurigancho", "usuarios": 1850 },
-    { "distrito": "Los Olivos", "usuarios": 1240 },
-    { "distrito": "Comas", "usuarios": 980 }
+    { "distrito": "Cuauhtémoc", "usuarios": 3200 },
+    { "distrito": "Iztapalapa", "usuarios": 1850 },
+    { "distrito": "Gustavo A. Madero", "usuarios": 1240 },
+    { "distrito": "Coyoacán", "usuarios": 980 }
   ]
 }

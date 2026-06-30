@@ -22,9 +22,9 @@ export async function crearCita(payload) {
     pagoId: null,
     codigoReserva: `CITA-${Math.random().toString(36).toUpperCase().slice(2, 7)}`,
     checklist: [
-      { item: 'DNI vigente', obligatorio: true, completado: false },
+      { item: 'INE vigente', obligatorio: true, completado: false },
       { item: 'Licencia de conducir', obligatorio: true, completado: false },
-      { item: 'SOAT vigente', obligatorio: true, completado: false },
+      { item: 'Seguro vehicular vigente', obligatorio: true, completado: false },
     ],
     creadaEn: new Date().toISOString(),
     ...payload,

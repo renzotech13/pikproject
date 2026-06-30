@@ -297,7 +297,7 @@ export default function DashboardOverview() {
       <div className="rounded-xl bg-slate-50 px-3 py-3 text-center">
         <Badge variant="danger" className="mb-1.5">DEMO — Panel de Inteligencia de Negocio</Badge>
         <p className="text-[11px] leading-relaxed text-slate-400">
-          Tracking de comportamiento y scraping automático (MTC · SUTRAN · SOAT)
+          Tracking de comportamiento y scraping automático (SICT · Semovi · SAT)
           se activan en producción.{' '}
           <button
             onClick={() => setRoadmapOpen(true)}

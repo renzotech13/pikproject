@@ -37,7 +37,7 @@ export default function Login() {
       <div className="w-full space-y-3 opacity-40 pointer-events-none select-none">
         <input
           className="w-full rounded-xl border border-slate-200 px-4 py-3 text-sm outline-none"
-          placeholder="Email o DNI"
+          placeholder="Email o CURP"
           readOnly
         />
         <input
