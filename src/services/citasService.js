@@ -17,7 +17,7 @@ export async function getCita(id) {
 export async function crearCita(payload) {
   const nueva = {
     id: `cita_${Date.now()}`,
-    estado: 'confirmada',
+    estado: 'pendiente_pago',
     pagada: false,
     pagoId: null,
     codigoReserva: `CITA-${Math.random().toString(36).toUpperCase().slice(2, 7)}`,
@@ -31,6 +31,11 @@ export async function crearCita(payload) {
   }
   _store = [..._store, nueva]
   return mockFetch(nueva)
+}
+
+export async function confirmarCita(id) {
+  _store = _store.map((c) => c.id === id ? { ...c, estado: 'confirmada', pagada: true } : c)
+  return mockFetch(_store.find((c) => c.id === id) ?? null)
 }
 
 export async function cancelarCita(id) {

@@ -21,8 +21,9 @@ export default function AppointmentsList() {
   const { sedes }          = useSedes({ activa: true })
 
   const sedeMap   = Object.fromEntries(sedes.map((s) => [s.id, s.nombre]))
-  const proximas  = citas.filter((c) => c.fecha >= TODAY && c.estado !== 'cancelada')
-  const historial = citas.filter((c) => c.fecha < TODAY  || c.estado === 'cancelada')
+  const visible   = citas.filter((c) => c.estado !== 'pendiente_pago')
+  const proximas  = visible.filter((c) => c.fecha >= TODAY && c.estado !== 'cancelada')
+  const historial = visible.filter((c) => c.fecha < TODAY  || c.estado === 'cancelada')
 
   return (
     <div className="space-y-5 px-4 pb-28 pt-4">
@@ -42,7 +43,7 @@ export default function AppointmentsList() {
       )}
 
       {/* Sin citas */}
-      {!loading && citas.length === 0 && (
+      {!loading && visible.length === 0 && (
         <EmptyState
           Icon={Calendar}
           title="Sin citas agendadas"
@@ -60,7 +61,7 @@ export default function AppointmentsList() {
       )}
 
       {/* Lista */}
-      {!loading && citas.length > 0 && (
+      {!loading && visible.length > 0 && (
         <>
           {proximas.length > 0 && (
             <section className="space-y-3">

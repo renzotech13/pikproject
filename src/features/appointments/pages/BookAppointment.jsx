@@ -3,7 +3,6 @@ import { motion } from 'framer-motion'
 import { useNavigate } from 'react-router-dom'
 import { CheckCircle, MapPin, Calendar, Clock } from 'lucide-react'
 import { Card, Badge, Button, Stepper, Skeleton } from '@/components/ui'
-import { useToast } from '@/hooks/useToast'
 import { ROUTES } from '@/constants/routes'
 import { useAuth } from '@/context/AuthContext'
 import { useSedes } from '../hooks/useSedes'
@@ -43,7 +42,6 @@ const BUSINESS_DAYS = getNextBusinessDays(7)
 
 export default function BookAppointment() {
   const navigate        = useNavigate()
-  const { show }        = useToast()
   const { currentUser } = useAuth()
 
   const [step, setStep]             = useState(0)
@@ -78,22 +76,26 @@ export default function BookAppointment() {
   async function handleConfirm() {
     setConfirming(true)
     try {
-      await crearCita({
+      const nueva = await crearCita({
         usuarioId:   currentUser.id,
         sedeId:      selectedSede.id,
         fecha:       selectedDate,
         hora:        selectedHora,
         tipo:        'verificacion_inicial',
         duracionMin: 45,
-        costo:       85,
-        notas:       'Traer documentos en original y copia.',
+        costo:       850,
+        notas:       'Traer INE, licencia de conducir y tarjeta de circulación.',
       })
-      show({
-        title:       '¡Cita agendada!',
-        description: `${selectedDate} · ${selectedHora} en ${selectedSede.nombre}`,
-        variant:     'success',
+      navigate(ROUTES.CHECKOUT, {
+        state: {
+          citaId:     nueva.id,
+          monto:      nueva.costo,
+          concepto:   `Verificación PIK · ${selectedSede.nombre}`,
+          sedeNombre: selectedSede.nombre,
+          fecha:      selectedDate,
+          hora:       selectedHora,
+        },
       })
-      navigate(ROUTES.APPOINTMENTS)
     } finally {
       setConfirming(false)
     }

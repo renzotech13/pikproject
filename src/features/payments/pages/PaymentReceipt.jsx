@@ -4,6 +4,7 @@ import { motion } from 'framer-motion'
 import { CheckCircle2, Download, Mail, Home, Clock } from 'lucide-react'
 import { Card, Badge, Button, Skeleton } from '@/components/ui'
 import { getPago } from '@/services/pagosService'
+import { confirmarCita } from '@/services/citasService'
 import { formatMXN } from '@/lib/formatters'
 import { ROUTES } from '@/constants/routes'
 
@@ -57,6 +58,7 @@ export default function PaymentReceipt() {
   const location    = useLocation()
   const navigate    = useNavigate()
 
+  const citaId            = location.state?.citaId ?? null
   const [pago,    setPago]    = useState(location.state?.pago ?? null)
   const [loading, setLoading] = useState(!pago)
 
@@ -68,6 +70,12 @@ export default function PaymentReceipt() {
       setLoading(false)
     })
   }, [pagoId]) // eslint-disable-line react-hooks/exhaustive-deps
+
+  // Confirma la cita en _store cuando el pago se completa (no aplica a SPEI en proceso)
+  useEffect(() => {
+    if (!pago || !citaId || pago.estado !== 'completado') return
+    confirmarCita(citaId)
+  }, [pago?.id, citaId]) // eslint-disable-line react-hooks/exhaustive-deps
 
   if (loading) {
     return (
@@ -199,9 +207,9 @@ export default function PaymentReceipt() {
           size="lg"
           fullWidth
           leftIcon={<Home size={17} />}
-          onClick={() => navigate(ROUTES.APP)}
+          onClick={() => navigate(citaId ? ROUTES.APPOINTMENTS : ROUTES.APP)}
         >
-          Volver al inicio
+          {citaId ? 'Ver mis citas' : 'Volver al inicio'}
         </Button>
       </motion.div>
 

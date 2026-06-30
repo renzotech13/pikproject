@@ -26,8 +26,15 @@ export default function Checkout() {
   const location        = useLocation()
   const { currentUser } = useAuth()
 
-  // Acepta datos desde navigate state (ej. desde HomeDashboard) o usa demo
-  const { concepto = CONCEPTO_DEMO, monto = MONTO_DEMO, citaId } = location.state ?? {}
+  // Acepta datos desde navigate state (BookAppointment) o usa demo
+  const {
+    concepto   = CONCEPTO_DEMO,
+    monto      = MONTO_DEMO,
+    citaId,
+    sedeNombre,
+    fecha,
+    hora,
+  } = location.state ?? {}
 
   const [method,     setMethod]     = useState('tarjeta')
   const [processing, setProcessing] = useState(false)
@@ -50,7 +57,7 @@ export default function Checkout() {
       setProcessing(false)
       return
     }
-    navigate(ROUTES.PAYMENT_RECEIPT(pago.id), { state: { pago } })
+    navigate(ROUTES.PAYMENT_RECEIPT(pago.id), { state: { pago, citaId } })
   }
 
   return (
@@ -69,6 +76,18 @@ export default function Checkout() {
             <span className="text-slate-500">Servicio</span>
             <span className="font-semibold text-ink">{concepto}</span>
           </div>
+          {sedeNombre && (
+            <div className="flex justify-between text-sm">
+              <span className="text-slate-500">Sede</span>
+              <span className="font-semibold text-ink">{sedeNombre}</span>
+            </div>
+          )}
+          {fecha && hora && (
+            <div className="flex justify-between text-sm">
+              <span className="text-slate-500">Fecha</span>
+              <span className="font-semibold text-ink">{fecha} · {hora}</span>
+            </div>
+          )}
           <div className="flex justify-between text-sm">
             <span className="text-slate-500">Moneda</span>
             <span className="font-semibold text-ink">MXN (Pesos mexicanos)</span>
