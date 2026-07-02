@@ -1,17 +1,34 @@
 import { useNavigate } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { Calendar, ShieldCheck, Gift, IdCard, ChevronRight, MapPin } from 'lucide-react'
+import { Calendar, ShieldCheck, Gift, IdCard, ChevronRight, MapPin, Plus } from 'lucide-react'
 import { listContainer, listItem } from '@/lib/motion'
 import { useAuth } from '@/context/AuthContext'
+import { useAsync } from '@/hooks/useAsync'
+import { listCitas } from '@/services/citasService'
+import { listSedes } from '@/services/sedesService'
 import { ROUTES } from '@/constants/routes'
-import { Card, Badge, StatusBadge, Button } from '@/components/ui'
+import { Card, Badge, StatusBadge, Button, Skeleton } from '@/components/ui'
 
-// Próxima cita hardcoded para la demo (servicio real se implementa en la fase de features)
-const NEXT_CITA = {
-  fechaDisplay: 'Sáb 5 Jul · 10:30 am',
-  sede: 'PIK Centro · Cuauhtémoc',
-  tipo: 'Renovación',
-  estado: 'confirmada',
+const DIAS  = ['Dom', 'Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb']
+const MESES = ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic']
+
+const TIPO_LABELS = {
+  verificacion_inicial: 'Verificación inicial',
+  inspeccion_tecnica:   'Inspección técnica',
+  renovacion:           'Renovación',
+  emision_credencial:   'Emisión de credencial',
+}
+
+function localToday() {
+  const d = new Date()
+  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`
+}
+
+// "2026-07-05" + "10:30" → "Sáb 5 Jul · 10:30"
+function formatCita(fechaStr, hora) {
+  const [y, m, d] = fechaStr.split('-').map(Number)
+  const date = new Date(y, m - 1, d)
+  return `${DIAS[date.getDay()]} ${d} ${MESES[m - 1]} · ${hora}`
 }
 
 const QUICK_ACTIONS = [
@@ -33,6 +50,16 @@ export default function HomeDashboard() {
   const navigate = useNavigate()
   const isCert = currentUser?.estadoCertificacion === 'certificado'
   const score  = currentUser?.scorePIK ?? 0
+
+  // Próxima cita real desde el store (refleja las citas creadas en la demo)
+  const { data: citas, loading: citasLoading } = useAsync(() => listCitas(currentUser?.id), [currentUser?.id])
+  const { data: sedes } = useAsync(() => listSedes({ activa: true }), [])
+
+  const TODAY   = localToday()
+  const sedeMap = Object.fromEntries((sedes ?? []).map((s) => [s.id, s.nombre]))
+  const proxima = (citas ?? [])
+    .filter((c) => c.fecha >= TODAY && ['confirmada', 'pendiente', 'reprogramada'].includes(c.estado))
+    .sort((a, b) => `${a.fecha}${a.hora}`.localeCompare(`${b.fecha}${b.hora}`))[0]
 
   return (
     <div className="space-y-4 px-4 pb-28 pt-4">
@@ -91,28 +118,47 @@ export default function HomeDashboard() {
         </div>
       </div>
 
-      {/* ── Próxima cita ─────────────────────────────────────────────── */}
+      {/* ── Próxima cita (leída del store — refleja lo creado en la demo) ── */}
       <div>
         <p className="mb-2 text-sm font-semibold text-ink">Próxima Cita</p>
-        <Card variant="interactive" padding="md" onClick={() => navigate(ROUTES.APPOINTMENTS)}>
-          <div className="flex items-center justify-between gap-3">
+        {citasLoading ? (
+          <Skeleton height={76} className="w-full" />
+        ) : proxima ? (
+          <Card
+            variant="interactive"
+            padding="md"
+            onClick={() => navigate(ROUTES.APPOINTMENT_DETAIL(proxima.id))}
+          >
+            <div className="flex items-center justify-between gap-3">
+              <div className="flex items-center gap-3">
+                <div className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-primary/10">
+                  <Calendar size={18} className="text-primary" />
+                </div>
+                <div>
+                  <p className="text-sm font-semibold text-ink">{formatCita(proxima.fecha, proxima.hora)}</p>
+                  <p className="text-xs text-slate-500">{sedeMap[proxima.sedeId] ?? 'Sede PIK'}</p>
+                  <p className="text-xs text-slate-400">{TIPO_LABELS[proxima.tipo] ?? proxima.tipo}</p>
+                </div>
+              </div>
+              <div className="flex shrink-0 items-center gap-2">
+                <StatusBadge estado={proxima.estado} size="sm" />
+                <ChevronRight size={16} className="text-slate-300" />
+              </div>
+            </div>
+          </Card>
+        ) : (
+          <Card variant="outlined" padding="md">
             <div className="flex items-center gap-3">
-              <div className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-primary/10">
-                <Calendar size={18} className="text-primary" />
+              <div className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-slate-100">
+                <Plus size={18} className="text-slate-400" />
               </div>
-              <div>
-                <p className="text-sm font-semibold text-ink">{NEXT_CITA.fechaDisplay}</p>
-                <p className="text-xs text-slate-500">{NEXT_CITA.sede}</p>
-                <p className="text-xs text-slate-400">{NEXT_CITA.tipo}</p>
+              <div className="flex-1">
+                <p className="text-sm font-semibold text-ink">Sin citas próximas</p>
+                <p className="text-xs text-slate-400">Agenda tu siguiente visita a un centro PIK.</p>
               </div>
             </div>
-            <div className="flex shrink-0 items-center gap-2">
-              {/* StatusBadge consume el mapa ESTADO_COLOR + ESTADO_LABEL */}
-              <StatusBadge estado={NEXT_CITA.estado} size="sm" />
-              <ChevronRight size={16} className="text-slate-300" />
-            </div>
-          </div>
-        </Card>
+          </Card>
+        )}
       </div>
 
       {/* ── Acciones rápidas ─────────────────────────────────────────── */}

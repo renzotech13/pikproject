@@ -6,7 +6,7 @@ import { Card, Badge, Button, Stepper, Skeleton } from '@/components/ui'
 import { ROUTES } from '@/constants/routes'
 import { useAuth } from '@/context/AuthContext'
 import { useSedes } from '../hooks/useSedes'
-import { getDisponibilidad, getSede } from '@/services/sedesService'
+import { getDisponibilidad, getSede, marcarSlotOcupado } from '@/services/sedesService'
 import { crearCita } from '@/services/citasService'
 import { listContainer, listItem } from '@/lib/motion'
 import { formatMXN } from '@/lib/formatters'
@@ -90,6 +90,8 @@ export default function BookAppointment() {
         costo:       COSTO_CITA,
         notas:       'Traer INE, licencia de conducir y tarjeta de circulación.',
       })
+      // Anti-overbooking: el slot queda ocupado para cualquier otra reserva
+      marcarSlotOcupado(selectedSede.id, selectedDate, selectedHora)
       navigate(ROUTES.CHECKOUT, {
         state: {
           citaId:     nueva.id,

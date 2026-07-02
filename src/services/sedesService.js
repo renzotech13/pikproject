@@ -27,13 +27,25 @@ const BASE_SLOTS = [
   { hora: '16:15', disponible: true },
 ]
 
+// Slots reservados durante la sesión — anti-overbooking:
+// al confirmar una cita el horario deja de estar disponible para todos.
+const _reservados = new Set()
+
+export function marcarSlotOcupado(sedeId, fecha, hora) {
+  _reservados.add(`${sedeId}|${fecha}|${hora}`)
+}
+
 export async function getDisponibilidad(sedeId, fecha) {
   const seed = fecha
     ? fecha.split('-').reduce((a, b) => a + parseInt(b, 10), 0) % BASE_SLOTS.length
     : 0
   const slots = BASE_SLOTS.map((s, i) => ({
     ...s,
-    disponible: s.disponible && i !== seed && i !== (seed + 3) % BASE_SLOTS.length,
+    disponible:
+      s.disponible &&
+      i !== seed &&
+      i !== (seed + 3) % BASE_SLOTS.length &&
+      !_reservados.has(`${sedeId}|${fecha}|${s.hora}`),
   }))
   return mockFetch(slots)
 }

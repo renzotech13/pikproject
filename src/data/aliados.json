@@ -4,13 +4,13 @@
     "nombre": "MotoRepuestos CDMX",
     "categoria": "repuestos",
     "logoUrl": "/images/aliados/aliado_001.png",
-    "descripcion": "Cadena de repuestos y accesorios para motos.",
+    "descripcion": "Cadena de repuestos y accesorios para motos con 12 sucursales en el Valle de México.",
     "beneficio": {
       "titulo": "15% de descuento en repuestos",
       "tipo": "descuento_porcentaje",
       "valor": 15,
       "codigoCupon": "PIK15MOTO",
-      "condiciones": "Válido presentando credencial PIK vigente. No acumulable.",
+      "condiciones": "Válido presentando credencial PIK vigente. No acumulable con otras promociones.",
       "vigenciaDesde": "2026-01-01",
       "vigenciaHasta": "2026-12-31"
     },
@@ -41,6 +41,94 @@
     "destacado": true,
     "totalCanjes": 845,
     "calificacion": 4.2,
+    "activo": true
+  },
+  {
+    "id": "aliado_003",
+    "nombre": "Seguros Atlas Moto",
+    "categoria": "seguros",
+    "logoUrl": "/images/aliados/aliado_003.png",
+    "descripcion": "Seguro de responsabilidad civil y cobertura amplia para motocicletas.",
+    "beneficio": {
+      "titulo": "20% de descuento en tu primer año",
+      "tipo": "descuento_porcentaje",
+      "valor": 20,
+      "codigoCupon": "PIKSEGURO20",
+      "condiciones": "Aplica a póliza nueva de cobertura amplia. Sujeto a evaluación del vehículo.",
+      "vigenciaDesde": "2026-01-01",
+      "vigenciaHasta": "2026-12-31"
+    },
+    "membresiaRequerida": "free",
+    "ubicaciones": ["CDMX", "Puebla", "Querétaro"],
+    "destacado": true,
+    "totalCanjes": 512,
+    "calificacion": 4.7,
+    "activo": true
+  },
+  {
+    "id": "aliado_004",
+    "nombre": "Taller RodaMX",
+    "categoria": "talleres",
+    "logoUrl": "/images/aliados/aliado_004.png",
+    "descripcion": "Talleres especializados en motos de trabajo y reparto.",
+    "beneficio": {
+      "titulo": "2x1 en servicio de mantenimiento básico",
+      "tipo": "2x1",
+      "valor": null,
+      "codigoCupon": "PIKRODA2X1",
+      "condiciones": "Incluye cambio de aceite y revisión de frenos. Cita previa obligatoria.",
+      "vigenciaDesde": "2026-02-01",
+      "vigenciaHasta": "2026-11-30"
+    },
+    "membresiaRequerida": "free",
+    "ubicaciones": ["CDMX", "Naucalpan"],
+    "destacado": false,
+    "totalCanjes": 389,
+    "calificacion": 4.4,
+    "activo": true
+  },
+  {
+    "id": "aliado_005",
+    "nombre": "Moto Gear MX",
+    "categoria": "indumentaria",
+    "logoUrl": "/images/aliados/aliado_005.png",
+    "descripcion": "Cascos certificados DOT/ECE, guantes y equipo de protección.",
+    "beneficio": {
+      "titulo": "$200 de descuento en cascos certificados",
+      "tipo": "descuento_fijo",
+      "valor": 200,
+      "codigoCupon": "PIKCASCO200",
+      "condiciones": "En compras mayores a $1,500. Solo cascos con certificación DOT o ECE.",
+      "vigenciaDesde": "2026-01-15",
+      "vigenciaHasta": "2026-12-31"
+    },
+    "membresiaRequerida": "premium",
+    "ubicaciones": ["CDMX", "Toluca"],
+    "destacado": false,
+    "totalCanjes": 276,
+    "calificacion": 4.6,
+    "activo": true
+  },
+  {
+    "id": "aliado_006",
+    "nombre": "Café Biker Roma",
+    "categoria": "gastronomia",
+    "logoUrl": "/images/aliados/aliado_006.png",
+    "descripcion": "Cafetería biker-friendly con estacionamiento vigilado para motos.",
+    "beneficio": {
+      "titulo": "2x1 en café de especialidad",
+      "tipo": "2x1",
+      "valor": null,
+      "codigoCupon": "PIKCAFE",
+      "condiciones": "Lunes a viernes de 7:00 a 11:00. Un canje por día.",
+      "vigenciaDesde": "2026-01-01",
+      "vigenciaHasta": "2026-12-31"
+    },
+    "membresiaRequerida": "free",
+    "ubicaciones": ["CDMX · Roma Norte"],
+    "destacado": false,
+    "totalCanjes": 921,
+    "calificacion": 4.8,
     "activo": true
   }
 ]
