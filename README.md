@@ -35,18 +35,18 @@ npm run preview
 |-----------------|------------------------------|
 | **Email**       | `demo@pik.mx`                |
 | **Contraseña**  | `demo123`                    |
-| **Usuario**     | Carlos Quispe Mamani         |
+| **Usuario**     | Carlos Ramírez Herrera       |
 | **Código PIK**  | `PIK-2026-004512`            |
 | **Estado**      | Certificado Vigente ✅        |
 | **Score PIK**   | 820 / 1000                   |
 | **Membresía**   | Premium                      |
-| **Vehículo**    | Honda CB 190R 2022 · 1234-AB |
+| **Vehículo**    | Honda CB 190R 2022 · MXA-234-B |
 
 ### Vista Administrador
 
 | Campo           | Valor                        |
 |-----------------|------------------------------|
-| **Email**       | `admin@pik.pe`               |
+| **Email**       | `admin@pik.mx`               |
 | **Contraseña**  | `admin123`                   |
 | **Usuario**     | Admin PIK                    |
 | **Acceso**      | Panel completo de gestión    |
@@ -82,9 +82,11 @@ Navega usando la **barra flotante inferior** (Inicio · Citas · Beneficios · P
 
 ```
 Inicio → "Agendar nueva cita"
-  → Stepper: selecciona Los Olivos → elige fecha → selecciona 09:30
-  → "Confirmar cita" (aparece toast de éxito)
-  → Regresa a Mis Citas (la nueva cita aparece al instante)
+  → Stepper: selecciona PIK Norte · Lindavista → elige fecha → selecciona 09:30
+  → "Confirmar cita" → redirige al Checkout con el resumen de la cita
+  → Paga con tarjeta (4111 1111 1111 1111) → comprobante de pago
+  → "Ver mis citas" → la cita aparece como Confirmada
+  (la cita NO es visible en el dashboard hasta completar el pago)
 
 Inicio → Pagos → "Nuevo pago"
   → Tab Tarjeta: ingresa 4111 1111 1111 1111 / 12/28 / 123
@@ -106,7 +108,7 @@ Accede desde el botón **⚙️ Admin** del TopBar. Navega con las **tabs horizo
 | **Citas** | `/admin/citas` | Gestión de agenda de sedes |
 | **Sedes** | `/admin/sedes` | Capacidad, disponibilidad y horarios |
 | **Aliados** | `/admin/aliados` | Red de beneficios y canjes |
-| **Regulaciones** | `/admin/regulaciones` | Marco normativo MTC / SUTRAN |
+| **Regulaciones** | `/admin/regulaciones` | Marco normativo SICT / Semovi |
 | **Usuarios** | `/admin/usuarios` | Base de motociclistas registrados |
 
 #### Momentos clave en el panel Admin
@@ -165,7 +167,7 @@ Esta tabla distingue con precisión lo que es **código real** de lo que es **si
 | Base de datos | Archivos JSON en `src/data/` + `_store` en memoria | PostgreSQL vía Supabase |
 | Cobro real con tarjeta | Luhn válida → animación de "Procesando" | Mercado Pago SDK · PCI DSS |
 | Transferencia SPEI | CLABE mock + checkbox de confirmación | STP / Banxico API |
-| Verificación de identidad (KYC) | Niveles de verificación hardcodeados | API MTC / SUTRAN |
+| Verificación de identidad (KYC) | Niveles de verificación hardcodeados | API SICT / Semovi + Google Vision (INE) |
 | Notificaciones push | Toast local en el navegador | Firebase Cloud Messaging |
 | Scraping de registros | Animación de 2 seg con "Actualizando…" | Bot Node.js + cron job |
 | Geolocalización de sedes | Coordenadas estáticas en `sedes.json` | Google Maps Platform |
@@ -212,7 +214,7 @@ src/
 ├── data/               # JSON seed: usuarios · citas · pagos · sedes · aliados · analytics
 ├── context/            # AuthContext · ToastContext
 ├── hooks/              # useAsync · useToast
-├── lib/                # cn() · formatters (formatMXN · formatMoney)
+├── lib/                # cn() · formatters (formatMXN · formatNumber)
 ├── constants/          # routes.js · estados.js (ESTADO_COLOR · ESTADO_LABEL)
 └── routes/             # router.jsx (createBrowserRouter) · guards.jsx
 ```
@@ -268,9 +270,9 @@ El drawer **ⓘ Roadmap** (botón junto al badge DEMO en el panel Admin) muestra
 - Webhooks de confirmación + conciliación
 
 **Fase 3 — Integraciones gubernamentales (2–4 semanas)**
-- APIs MTC y SUTRAN para validación de licencias
-- Scraping de registros vehiculares y SOAT
-- KYC con validación de identidad (INE/DNI)
+- APIs SICT y Semovi para validación de licencias
+- Scraping de Repuve y padrón vehicular
+- KYC con validación de identidad (INE/CURP)
 
 **Fase 4 — Mobile nativo (4–6 semanas)**
 - React Native + Expo (iOS + Android)

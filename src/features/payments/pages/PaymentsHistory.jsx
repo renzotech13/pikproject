@@ -11,14 +11,12 @@ const METODO_LABELS = {
   tarjeta:      'Tarjeta',
   mercado_pago: 'Mercado Pago',
   spei:         'SPEI',
-  yape:         'Yape',
 }
 
 const METODO_ICON = {
   tarjeta:      '💳',
   mercado_pago: '🔵',
   spei:         '🏦',
-  yape:         '💜',
 }
 
 export default function PaymentsHistory() {

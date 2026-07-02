@@ -9,6 +9,7 @@ import { useSedes } from '../hooks/useSedes'
 import { getDisponibilidad, getSede } from '@/services/sedesService'
 import { crearCita } from '@/services/citasService'
 import { listContainer, listItem } from '@/lib/motion'
+import { formatMXN } from '@/lib/formatters'
 
 const STEPS = [
   { key: 'sede',    label: 'Sede'      },
@@ -39,6 +40,9 @@ function toISO(date) {
 }
 
 const BUSINESS_DAYS = getNextBusinessDays(7)
+
+// Costo único de la verificación inicial — misma cifra en resumen, cita y checkout
+const COSTO_CITA = 850
 
 export default function BookAppointment() {
   const navigate        = useNavigate()
@@ -83,7 +87,7 @@ export default function BookAppointment() {
         hora:        selectedHora,
         tipo:        'verificacion_inicial',
         duracionMin: 45,
-        costo:       850,
+        costo:       COSTO_CITA,
         notas:       'Traer INE, licencia de conducir y tarjeta de circulación.',
       })
       navigate(ROUTES.CHECKOUT, {
@@ -268,7 +272,7 @@ export default function BookAppointment() {
             { label: 'Hora',      value: selectedHora },
             { label: 'Tipo',      value: 'Verificación inicial' },
             { label: 'Duración',  value: '45 minutos' },
-            { label: 'Costo',     value: 'S/ 85.00' },
+            { label: 'Costo',     value: `${formatMXN(COSTO_CITA)} MXN` },
           ].map(({ label, value }) => (
             <div key={label} className="flex justify-between gap-4 text-sm">
               <span className="shrink-0 text-slate-500">{label}</span>

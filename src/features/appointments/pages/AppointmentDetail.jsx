@@ -4,7 +4,7 @@ import { Calendar, CheckCircle2, Circle } from 'lucide-react'
 import { Card, Badge, StatusBadge, Button, Skeleton } from '@/components/ui'
 import { getCita } from '@/services/citasService'
 import { getSede } from '@/services/sedesService'
-import { formatMoney } from '@/lib/formatters'
+import { formatMXN } from '@/lib/formatters'
 
 const DIAS  = ['Dom', 'Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb']
 const MESES = ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic']
@@ -81,7 +81,7 @@ export default function AppointmentDetail() {
           { label: 'Dirección', value: sede?.direccion ?? '—' },
           { label: 'Tipo',      value: TIPO_LABELS[cita.tipo] ?? cita.tipo },
           { label: 'Duración',  value: `${cita.duracionMin} minutos` },
-          { label: 'Costo',     value: formatMoney(cita.costo) },
+          { label: 'Costo',     value: formatMXN(cita.costo) },
           { label: 'Pagada',    value: cita.pagada ? 'Sí' : 'No' },
         ].map(({ label, value }) => (
           <div key={label} className="flex justify-between gap-4 text-sm">

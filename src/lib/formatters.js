@@ -1,16 +1,12 @@
 // Formateadores compartidos. Ver CONTRACT.md §0 (dinero/fechas).
+// Mercado: México — toda cifra monetaria se formatea en MXN con locale es-MX.
 
-export function formatMoney(amount, currency = 'PEN') {
-  return new Intl.NumberFormat('es-PE', { style: 'currency', currency }).format(amount ?? 0)
-}
-
-// Formatea monto en pesos mexicanos con locale correcto (es-MX → "$850.00")
 export function formatMXN(amount) {
   return new Intl.NumberFormat('es-MX', { style: 'currency', currency: 'MXN' }).format(amount ?? 0)
 }
 
 export function formatNumber(value) {
-  return new Intl.NumberFormat('es-PE').format(value ?? 0)
+  return new Intl.NumberFormat('es-MX').format(value ?? 0)
 }
 
 export function formatPercent(ratio, decimals = 1) {

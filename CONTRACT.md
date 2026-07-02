@@ -3,7 +3,7 @@
 > **Proyecto:** PIK · Ecosistema de Certificación de Motociclistas
 > **Stack:** React 18 + Vite + Tailwind CSS · Mobile-first · SPA (React Router)
 > **Naturaleza:** Demo navegable. Todas las integraciones reales (pagos, mapas, KYC, notificaciones) están **simuladas con datos mock** en `src/data/` y servidas por la capa `src/services/`.
-> **Idioma del dominio:** Español (Perú). Los nombres de campos en JSON se mantienen en español para alinear con el negocio; el código (componentes/funciones) usa convención técnica habitual.
+> **Idioma del dominio:** Español (México). Los nombres de campos en JSON se mantienen en español para alinear con el negocio; el código (componentes/funciones) usa convención técnica habitual.
 
 Este documento es la **fuente única de verdad**. Cualquier bloque (feature) puede desarrollarse en paralelo siempre que respete:
 1. La forma de los datos (sección 2).
@@ -22,7 +22,7 @@ Este documento es la **fuente única de verdad**. Cualquier bloque (feature) pue
 | Imports internos | Alias `@/` → `src/` (configurado en `vite.config.js` y `jsconfig.json`). |
 | IDs en mock data | `string` con prefijo de entidad: `usr_`, `sede_`, `cita_`, `pago_`, `aliado_`, `reg_`. |
 | Fechas | ISO 8601. Solo-fecha: `"YYYY-MM-DD"`. Con hora: `"YYYY-MM-DDTHH:mm:ssZ"`. |
-| Dinero | `number` en **soles (PEN)**, 2 decimales. La UI formatea con `formatMoney()` (`src/lib/formatters.js`). |
+| Dinero | `number` en **pesos mexicanos (MXN)**, 2 decimales. La UI formatea con `formatMXN()` (`src/lib/formatters.js`). |
 | Enums | Definidos como constantes en `src/constants/`. **No** hardcodear strings de estado en componentes. |
 | Estado global | React Context (`AuthContext`, `ToastContext`). Nada de Redux para la demo. |
 | Datos | Componentes **nunca** importan JSON directo; siempre vía `src/services/*`. |
@@ -119,10 +119,10 @@ Reglas: campos `?` son opcionales; los demás son **obligatorios**. Los valores 
   "id": "usr_001",                         // string · PK
   "rol": "motociclista",                   // «RolUsuario»
   "nombres": "Carlos",
-  "apellidos": "Quispe Mamani",
-  "dni": "44556677",                       // 8 dígitos
-  "email": "carlos.quispe@example.com",
-  "telefono": "+51 987654321",
+  "apellidos": "Ramírez Herrera",
+  "dni": "44556677",                       // identificación oficial (INE, 8 dígitos en mock)
+  "email": "carlos.ramirez@example.com",
+  "telefono": "+52 55 1234 5678",
   "fechaNacimiento": "1995-03-12",
   "avatarUrl": "/images/avatars/usr_001.jpg",  // ? fallback a iniciales
   "estadoCertificacion": "certificado",    // «EstadoCertificacion»
@@ -133,29 +133,29 @@ Reglas: campos `?` son opcionales; los demás son **obligatorios**. Los valores 
   "fechaCertificacion": "2026-01-15",      // ?
   "fechaVencimiento": "2027-01-15",        // ?
   "vehiculo": {
-    "placa": "1234-AB",
+    "placa": "MXA-234-B",
     "marca": "Honda",
     "modelo": "CB 190R",
     "anio": 2022,
     "cilindrada": 190,                     // cc
     "color": "Rojo",
-    "soatVigente": true,
+    "soatVigente": true,                   // seguro vehicular (RC) vigente
     "soatVencimiento": "2026-09-30"
   },
   "documentos": {
-    "dniVerificado": true,
+    "dniVerificado": true,                 // INE verificada
     "licenciaConducir": {
       "numero": "Q44556677",
-      "categoria": "B-IIa",                // categoría licencia MTC
+      "categoria": "A",                    // licencia tipo A (motocicleta)
       "vencimiento": "2028-05-20",
       "verificado": true
     },
     "antecedentes": "limpio"               // «EstadoAntecedentes»
   },
   "direccion": {
-    "departamento": "Lima",
-    "provincia": "Lima",
-    "distrito": "Miraflores"
+    "departamento": "Ciudad de México",
+    "provincia": "CDMX",
+    "distrito": "Cuauhtémoc"               // alcaldía
   },
   "fechaRegistro": "2025-11-02"
 }
@@ -166,13 +166,13 @@ Reglas: campos `?` son opcionales; los demás son **obligatorios**. Los valores 
 ```jsonc
 {
   "id": "sede_001",                        // string · PK
-  "nombre": "PIK Centro · San Isidro",
+  "nombre": "PIK Centro · Cuauhtémoc",
   "tipo": "centro_certificacion",          // «TipoSede»
-  "direccion": "Av. Javier Prado Este 123, San Isidro",
-  "distrito": "San Isidro",
-  "departamento": "Lima",
-  "coordenadas": { "lat": -12.0931, "lng": -77.0465 },  // para mapa mock
-  "telefono": "+51 1 4567890",
+  "direccion": "Av. Paseo de la Reforma 350, Col. Juárez",
+  "distrito": "Cuauhtémoc",                // alcaldía
+  "departamento": "Ciudad de México",
+  "coordenadas": { "lat": 19.4289, "lng": -99.1540 },  // para mapa mock
+  "telefono": "+52 55 4567 8900",
   "horario": {
     "lunesViernes": "08:00 - 18:00",
     "sabado": "09:00 - 13:00",
@@ -201,14 +201,14 @@ Reglas: campos `?` son opcionales; los demás son **obligatorios**. Los valores 
   "duracionMin": 45,
   "estado": "confirmada",                  // «EstadoCita»
   "codigoReserva": "CITA-7K2P9",
-  "costo": 85.00,                          // PEN
+  "costo": 850.00,                         // MXN
   "pagada": true,
   "pagoId": "pago_001",                    // ? FK → Pago.id (si pagada)
-  "notas": "Traer DNI físico, licencia y tarjeta de propiedad.",  // ?
+  "notas": "Traer INE, licencia de conducir y tarjeta de circulación.",  // ?
   "checklist": [                           // documentos/requisitos a presentar
-    { "item": "DNI vigente", "obligatorio": true, "completado": false },
+    { "item": "INE vigente", "obligatorio": true, "completado": false },
     { "item": "Licencia de conducir", "obligatorio": true, "completado": false },
-    { "item": "SOAT vigente", "obligatorio": true, "completado": false }
+    { "item": "Seguro vehicular vigente", "obligatorio": true, "completado": false }
   ],
   "creadaEn": "2026-06-20T14:23:00Z"
 }
@@ -223,16 +223,16 @@ Reglas: campos `?` son opcionales; los demás son **obligatorios**. Los valores 
   "concepto": "Certificación inicial PIK", // texto
   "referencia": "cita_001",                // ? FK polimórfica (cita/membresía)
   "tipo": "certificacion",                 // «TipoPago»
-  "monto": 85.00,                          // PEN
-  "moneda": "PEN",
+  "monto": 850.00,                         // MXN
+  "moneda": "MXN",
   "metodo": "tarjeta",                     // «MetodoPago»  (mock)
   "estado": "completado",                  // «EstadoPago»
   "codigoOperacion": "OP-2026-88412",
   "comprobante": {
-    "tipo": "boleta",                      // «TipoComprobante»
-    "serie": "B001",
+    "tipo": "factura_electronica",         // «TipoComprobante» (CFDI en producción)
+    "serie": "F001",
     "numero": "0004512",
-    "url": "/comprobantes/B001-0004512.pdf"  // ? mock
+    "url": "/comprobantes/F001-0004512.pdf"  // ? mock
   },
   "fecha": "2026-06-20T14:25:30Z"
 }
@@ -243,7 +243,7 @@ Reglas: campos `?` son opcionales; los demás son **obligatorios**. Los valores 
 ```jsonc
 {
   "id": "aliado_001",                      // string · PK
-  "nombre": "MotoRepuestos Lima",
+  "nombre": "MotoRepuestos CDMX",
   "categoria": "repuestos",                // «CategoriaAliado»
   "logoUrl": "/images/aliados/aliado_001.png",
   "descripcion": "Cadena de repuestos y accesorios para motos.",
@@ -257,7 +257,7 @@ Reglas: campos `?` son opcionales; los demás son **obligatorios**. Los valores 
     "vigenciaHasta": "2026-12-31"
   },
   "membresiaRequerida": "free",            // «Membresia» — nivel mínimo para canjear
-  "ubicaciones": ["Lima", "Callao"],       // string[]
+  "ubicaciones": ["CDMX", "Ecatepec"],     // string[]
   "destacado": true,                       // aparece en carrusel home
   "totalCanjes": 1248,
   "calificacion": 4.5,                     // 0–5
@@ -272,12 +272,12 @@ Reglas: campos `?` son opcionales; los demás son **obligatorios**. Los valores 
   "id": "reg_001",                         // string · PK
   "titulo": "Certificación obligatoria para reparto en moto",
   "categoria": "delivery",                 // «CategoriaRegulacion»
-  "entidad": "MTC",                        // «EntidadReguladora»
+  "entidad": "SICT",                       // «EntidadReguladora»
   "resumen": "Toda persona que realice reparto en motocicleta debe contar con certificación vigente.",
   "contenido": "Texto completo en **Markdown**…",  // render con react-markdown (futuro) o texto plano
   "nivelImportancia": "alta",              // «NivelImportancia»
   "vigenteDesde": "2025-06-01",
-  "fuenteUrl": "https://www.gob.pe/mtc",   // ?
+  "fuenteUrl": "https://www.gob.mx/sict",  // ?
   "tags": ["delivery", "obligatorio", "moto"],
   "actualizadoEn": "2026-02-10"
 }
@@ -292,7 +292,7 @@ Reglas: campos `?` son opcionales; los demás son **obligatorios**. Los valores 
     "usuariosCertificados": 8932,
     "verificacionesEnProceso": 1203,
     "citasHoy": 156,
-    "ingresosMes": 542300.00,              // PEN
+    "ingresosMes": 542300.00,              // MXN
     "tasaCertificacion": 0.716             // 0–1 (ratio)
   },
   "kpis": [                                // tarjetas de KPI del header del dashboard
@@ -307,16 +307,16 @@ Reglas: campos `?` son opcionales; los demás son **obligatorios**. Los valores 
     { "estado": "en_proceso", "cantidad": 1203 }
   ],
   "citasPorSede": [                        // ranking → BarChart
-    { "sedeId": "sede_001", "nombre": "San Isidro", "cantidad": 1820 }
+    { "sedeId": "sede_001", "nombre": "Cuauhtémoc", "cantidad": 1820 }
   ],
   "ingresosPorMes": [                      // serie temporal → AreaChart
     { "mes": "2026-01", "monto": 480000 }
   ],
   "canjesPorAliado": [                     // ranking → BarChart
-    { "aliadoId": "aliado_001", "nombre": "MotoRepuestos Lima", "canjes": 1248 }
+    { "aliadoId": "aliado_001", "nombre": "MotoRepuestos CDMX", "canjes": 1248 }
   ],
   "distribucionGeografica": [              // mapa/lista
-    { "distrito": "Lima", "usuarios": 3200 }
+    { "distrito": "Cuauhtémoc", "usuarios": 3200 }
   ]
 }
 ```
@@ -335,13 +335,13 @@ Reglas: campos `?` son opcionales; los demás son **obligatorios**. Los valores 
 | `TipoCita` | `verificacion_inicial` · `inspeccion_tecnica` · `renovacion` · `emision_credencial` |
 | `EstadoCita` | `pendiente` · `confirmada` · `en_curso` · `completada` · `cancelada` · `no_asistio` · `reprogramada` |
 | `TipoPago` | `certificacion` · `renovacion` · `membresia` · `inspeccion` |
-| `MetodoPago` | `tarjeta` · `yape` · `plin` · `efectivo` · `transferencia` |
+| `MetodoPago` | `tarjeta` · `mercado_pago` · `spei` · `efectivo` |
 | `EstadoPago` | `pendiente` · `procesando` · `completado` · `fallido` · `reembolsado` |
-| `TipoComprobante` | `boleta` · `factura` |
+| `TipoComprobante` | `factura_electronica` · `recibo` |
 | `CategoriaAliado` | `repuestos` · `talleres` · `seguros` · `combustible` · `indumentaria` · `gastronomia` · `salud` |
 | `TipoBeneficio` | `descuento_porcentaje` · `descuento_fijo` · `2x1` · `cashback` · `regalo` |
-| `CategoriaRegulacion` | `delivery` · `licencias` · `soat` · `transito` · `municipal` · `general` |
-| `EntidadReguladora` | `MTC` · `SUTRAN` · `Municipalidad` · `PNP` |
+| `CategoriaRegulacion` | `delivery` · `licencias` · `seguro` · `transito` · `municipal` · `general` |
+| `EntidadReguladora` | `SICT` · `Semovi` · `Alcaldía` · `Guardia Nacional` |
 | `NivelImportancia` | `alta` · `media` · `baja` |
 
 > **Mapa de color por estado** (lo consume `<Badge>` y `<StatusBadge>`): `success` → certificado/completado/confirmada/pagada · `warning` → en_proceso/pendiente/pendiente_pago/procesando · `danger` → rechazado/vencido/cancelada/fallido/no_asistio · `info` → en_curso/reprogramada. Definido en `src/constants/estados.js > ESTADO_COLOR`.
@@ -384,7 +384,7 @@ Reglas: campos `?` son opcionales; los demás son **obligatorios**. Los valores 
 | `Toast` | (no se usa directo) | Se dispara con `useToast().show({type,message})`. Render por `<ToastProvider>`. |
 | `ListItem` | `leading?` · `title` · `subtitle?` · `trailing?` · `onClick?` | Fila genérica de lista. |
 | `QRCode` | `value` `string` · `size?` | Wrapper de `qrcode.react` (credencial). |
-| `Money` | `amount` `number` · `currency?` (def. `PEN`) | Formatea con `formatMoney()`. |
+| `Money` | `amount` `number` (MXN) | Formatea con `formatMXN()`. |
 
 ### 3.2 Layout / navegación — `src/components/layout/`
 
@@ -427,7 +427,7 @@ Tres superficies: **Pública**, **App del Motociclista** (mobile-first, autentic
       /app/sedes/:sedeId           → sedes/SedeDetail
   /app/pagos                       → payments/PaymentsHistory
       /app/pagos/:pagoId           → payments/PaymentReceipt
-      /app/pagos/checkout          → payments/Checkout               (mock Yape/tarjeta)
+      /app/pagos/checkout          → payments/Checkout               (mock Tarjeta/Mercado Pago/SPEI)
   /app/beneficios                  → benefits/BenefitsList
       /app/beneficios/:aliadoId    → benefits/BenefitDetail          (cupón + QR de canje)
   /app/credencial                  → credential/DigitalCredential    (carnet + QR)
